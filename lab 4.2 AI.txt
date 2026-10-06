@@ -1,0 +1,34 @@
+58 ?- consult(['c:/Users/alhar/Downloads/lab 4.2.pl']).
+true.
+
+58 ?- female(Who).
+Who = sara .
+
+59 ?- 
+|    female(Who).
+Who = sara ;
+Who = nora.
+
+59 ?- male(Who).
+Who = ali ;
+Who = ahmad ;
+Who = muhammad ;
+Who = faisal ;
+Who = hassan ;
+Who = khan.
+
+60 ?- parent(GP, muhammad).
+GP = ali.
+
+61 ?- parent(ahmad, Child), female(Child).
+Child = sara ;
+Child = nora ;
+false.
+
+62 ?- parent(Parent, ahmad), parent(Parent, muhammad).
+Parent = ali.
+
+63 ?- parent(Parent, khan), parent(Parent, nora), male(khan).
+Parent = ahmad.
+
+64 ?- 

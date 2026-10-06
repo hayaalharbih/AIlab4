@@ -1,0 +1,39 @@
+32 ?- house = house
+|    
+|    
+|    .
+true.
+Reason: : Both terms are identical constants (atoms), so they unify successfully.
+
+33 ?- house = abc.
+false.
+Reason:Two different constants
+34 ?- edge(a, b) = edge(C, b).
+C = a.
+Reason:The functors (edge) and number of arguments match. Variable C unifies with the constant a.
+35 ?- edge(a, d) = edge(C, B).
+C = a,
+B = d.
+Reason: Both arguments containing variables are instantiated to the respective matching constants (a and d)
+36 ?- edge(C, B) = edge(a, d).
+C = a,
+B = d.
+Reason:Unification is symmetric; variables on the left-hand side match constants on the right-hand side identically.
+37 ?- edge(A, f(g, h)) = edge(a, B).
+A = a,
+B = f(g, h).
+Reason: A instantiates to a, and variable B unifies with the entire structure f(g,h).
+
+38 ?- edge(A, A) = edge(b, c).
+false.
+Reason: Rule 3 requires that the same variable (A) must hold the same value. Here, A would need to be both b and c at the same time, which creates a constant clash.
+39 ?- edge(A, A) = edge(b, b).
+A = b.
+Reason:Both positions hold b, so A successfully instantiates to b maintaining consistency. 
+40 ?- A = B, B = f.
+A = B, B = f.
+Reason:A and B are linked together first, and then both are instantiated to the atom f. 
+41 ?- A = B, B = f, A = e.
+false.
+Reason: A and B are first linked to f, but the final goal tries to re-bind or equate A to e, resulting in a clash between two different constants (f and e).
+42 ?- 
